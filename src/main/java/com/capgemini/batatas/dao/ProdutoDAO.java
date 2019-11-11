@@ -53,17 +53,14 @@ public class ProdutoDAO {
 		buscar();
 	}
 
-	boolean excluirBatata(int id) {
-		boolean encontrou = false;
-		for (Item batatas : itens) {
-			if(batatas.getCodProd() == id) {
-				itens.remove(id);
-				encontrou = true;
+	public void excluirBatata(int id) {
+		for (Item batata : itens) {
+			if(batata.getCodProd() == id) {
+				itens.remove(batata);
 				break;
 			}
 				
 		}
-		return encontrou;
 	}
 	public Item buscarBatata(int id) {
 		for (Item item : itens) {

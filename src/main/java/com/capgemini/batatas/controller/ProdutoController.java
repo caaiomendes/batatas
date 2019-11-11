@@ -3,6 +3,7 @@ package com.capgemini.batatas.controller;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,5 +24,13 @@ public class ProdutoController {
     @ResponseBody
     public Item buscarUmaBatata(@PathVariable int id) {
     	return dao.buscarBatata(id);	
+    }
+    
+    @DeleteMapping("batatas/{id}/{resp}")
+    @ResponseBody
+    public void apagarUmaBatata(@PathVariable int id, @PathVariable char resp) {
+    	if(resp == 's') {
+    		dao.excluirBatata(id);
+    	}
     }
 }
