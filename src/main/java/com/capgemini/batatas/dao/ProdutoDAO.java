@@ -16,7 +16,10 @@ public class ProdutoDAO {
 	Comida batata2 = new Comida();
 
 	public ArrayList<Item> buscar() {
-    	
+		return itens;
+	}
+	
+	public ProdutoDAO() {
     	batata1.setCodProd(12);
     	batata1.setNome("Batata Catupiry");
     	batata1.setDescricao("Batata recheada com catupiry");
@@ -46,10 +49,6 @@ public class ProdutoDAO {
     	
     	itens.add(batata1);
     	itens.add(batata2);
-		return itens;
-	}
-	
-	public ProdutoDAO() {
 	}
 
 	public void excluirBatata(int id) {
@@ -61,7 +60,7 @@ public class ProdutoDAO {
 				
 		}
 	}
-	public Item buscarBatata(int id) {
+	public Item buscarProduto(int id) {
 		for (Item item : itens) {
 			if(item.getCodProd() == id) {
 				return item;
@@ -69,8 +68,15 @@ public class ProdutoDAO {
 		}
 		return null;
 	}
-    void popularMassaDeTestes() {
-    	
-    }
+	public ArrayList<Item> buscarPorTipo(String tipo) {
+		ArrayList<Item> prodTipo = new ArrayList<Item>();
+		tipo = tipo.toUpperCase();
+		for (Item item : itens) {
+			if(item.getTipo().toString().equals(tipo)) {
+				prodTipo.add(item);
+			}
+		}
+		return prodTipo;
+	}
 
 }
