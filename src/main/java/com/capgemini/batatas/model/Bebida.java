@@ -9,7 +9,7 @@ public class Bebida {
 	}
 	public void setSabor(String sabor) {
 		this.sabor = sabor;
-	}
+	} 
 	public boolean isGelo() {
 		return gelo;
 	}
