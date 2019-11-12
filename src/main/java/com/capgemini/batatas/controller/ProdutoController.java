@@ -13,11 +13,10 @@ import com.capgemini.batatas.model.Item;
 @Controller
 public class ProdutoController {
 	ProdutoDAO dao = new ProdutoDAO();
-    @GetMapping("/batatas")
+    @GetMapping("/produtos")
     @ResponseBody
     public ArrayList<Item> buscarTodosItens() {
-    	ArrayList<Item> itens = dao.buscar();
-        return itens;
+        return dao.buscar();
     }
     
     @GetMapping("batatas/{id}")

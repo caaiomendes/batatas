@@ -50,7 +50,6 @@ public class ProdutoDAO {
 	}
 	
 	public ProdutoDAO() {
-		buscar();
 	}
 
 	public void excluirBatata(int id) {
