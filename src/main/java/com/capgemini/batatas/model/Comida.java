@@ -2,6 +2,7 @@ package com.capgemini.batatas.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 
 @Entity

@@ -2,6 +2,7 @@ package com.capgemini.batatas.dao;
 
 import java.util.ArrayList;
 
+import com.capgemini.batatas.model.Bebida;
 import com.capgemini.batatas.model.Comida;
 import com.capgemini.batatas.model.Item;
 import com.capgemini.batatas.model.enums.Tamanho;
@@ -14,6 +15,7 @@ public class ProdutoDAO {
 	
 	Comida batata1 = new Comida();
 	Comida batata2 = new Comida();
+	Bebida refri = new Bebida();
 
 	public ArrayList<Item> buscar() {
 		return itens;
@@ -47,8 +49,18 @@ public class ProdutoDAO {
     	batata2.setTamanho(Tamanho.GRANDE);
     	batata2.setObservacao("Sem cebola");
     	
+    	refri.setCodProd(15);
+    	refri.setNome("Coca Cola");
+    	refri.setDescricao("Refrigerante Coca Cola");
+    	refri.setPreco(5.00);
+    	refri.setTipo(Tipo.REFRI);
+    	refri.setTamanho(Tamanho.MEDIO);
+    	refri.setObservacao("");
+    	refri.setGelo(true);
+    	
     	itens.add(batata1);
     	itens.add(batata2);
+    	itens.add(refri);
 	}
 
 	public void excluirBatata(int id) {
@@ -77,6 +89,21 @@ public class ProdutoDAO {
 			}
 		}
 		return prodTipo;
+	}
+	public Item inserirProduto(Item item) {
+		itens.add(item);
+		return item;
+	}
+
+	public Item atualizarProduto(int id,Item item) {
+		for (int contador = 0; contador < itens.size(); contador++) {
+			if (itens.get(contador).getCodProd() == id) {
+				itens.set(contador, item);
+				break;
+			}
+		}
+
+		return item;
 	}
 
 }

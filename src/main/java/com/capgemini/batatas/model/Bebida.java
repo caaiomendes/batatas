@@ -1,6 +1,9 @@
 package com.capgemini.batatas.model;
 
-public class Bebida {
+import javax.persistence.Entity;
+
+@Entity
+public class Bebida extends Item{
 
 	private String sabor;
 	private boolean gelo;

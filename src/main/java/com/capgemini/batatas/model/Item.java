@@ -1,14 +1,20 @@
 package com.capgemini.batatas.model;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.capgemini.batatas.model.enums.Tamanho;
 import com.capgemini.batatas.model.enums.Tipo;
 
+@DiscriminatorColumn(name = "Classe")
 @Entity
 public class Item {
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codProd;
 	private String nome;
 	private double preco;

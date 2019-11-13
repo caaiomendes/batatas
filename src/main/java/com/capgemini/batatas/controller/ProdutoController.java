@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +21,8 @@ import com.capgemini.batatas.repository.ItemRepository;
 
 @Controller
 @RequestMapping("/produtos")
-public class ProdutoController {
+public class ProdutoController{
+	
 	private static ProdutoDAO dao = new ProdutoDAO();
 	
 	@Autowired
@@ -35,20 +37,19 @@ public class ProdutoController {
 	@Autowired
 	private ItemRepository itemRepository;
 	
-
-
-	@RequestMapping(value = "teste", method = RequestMethod.GET)
-    @ResponseBody
-    public String teste() {
-		itemRepository.save(dao.buscarProduto(13));
-		return "sucesso!";
-	}
-	
     @GetMapping("")
     @ResponseBody
     public ArrayList<Item> buscarTodosItens() {
         return dao.buscar();
     }
+    
+    @RequestMapping(value = "teste", method = RequestMethod.GET)
+    @ResponseBody
+    public String teste() {
+		itemRepository.save(dao.buscarProduto(13));
+		itemRepository.save(dao.buscarProduto(15));
+		return "sucesso!";
+	}
     
     @GetMapping("/{id}")
     @ResponseBody
@@ -68,9 +69,16 @@ public class ProdutoController {
     	dao.excluirBatata(id);
     }
     
-    @PostMapping("/{id}")
-    public void inserirUmaBatata(@PathVariable int id) {
-    	dao.excluirBatata(id);
+    @RequestMapping(value = "" , method = RequestMethod.POST)
+    @ResponseBody
+    Item inserirProduto(@RequestBody Item item) {
+    	return itemRepository.save(item);
+    }
+    
+    @RequestMapping(value = "{id}" , method = RequestMethod.PUT)
+    @ResponseBody
+    Item atualizarProduto(@PathVariable int id,@RequestBody Item item) {
+    	return dao.atualizarProduto(id, item);
     }
     
 }
