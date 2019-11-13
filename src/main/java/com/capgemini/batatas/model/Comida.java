@@ -2,6 +2,9 @@ package com.capgemini.batatas.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Comida extends Item{
 
 	private ArrayList<Item> ingredientes;

@@ -1,9 +1,14 @@
 package com.capgemini.batatas.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 import com.capgemini.batatas.model.enums.Tamanho;
 import com.capgemini.batatas.model.enums.Tipo;
 
+@Entity
 public class Item {
+	@Id
 	private int codProd;
 	private String nome;
 	private double preco;
