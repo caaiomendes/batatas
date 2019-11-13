@@ -2,8 +2,13 @@ package com.capgemini.batatas.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Cliente {
 
+	@Id
 	private String cpfCliente;
 	private int ddd;
 	private int numeroTel;
