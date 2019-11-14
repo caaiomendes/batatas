@@ -1,7 +1,7 @@
 package com.capgemini.batatas.model;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.capgemini.batatas.model.enums.Status;
 
@@ -9,7 +9,7 @@ public class Pedido {
 	private int nPed;
 	private Cliente cliente;
 	private Date data;
-	private ArrayList<Item> itens;
+	private List<Item> itens;
 	private double frete;
 	private double total;
 	private String formaPagamento;
@@ -56,10 +56,10 @@ public class Pedido {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	public ArrayList<Item> getItens() {
+	public List<Item> getItens() {
 		return itens;
 	}
-	public void setItens(ArrayList<Item> itens) {
+	public void setItens(List<Item> itens) {
 		this.itens = itens;
 	}
 	

@@ -22,7 +22,7 @@ public class ProdutoDAO {
 	}
 	
 	public ProdutoDAO() {
-    	batata1.setCodProd(12);
+    	batata1.setCodProd(12l);
     	batata1.setNome("Batata Catupiry");
     	batata1.setDescricao("Batata recheada com catupiry");
     	batata1.setPreco(20.00);
@@ -31,17 +31,17 @@ public class ProdutoDAO {
     	batata1.setObservacao("Completa");
     	
     	Item adicional1 = new Item();
-    	adicional1.setCodProd(2222);
+    	adicional1.setCodProd(2222l);
     	adicional1.setNome("Bacon");
     	adicionais.add(adicional1);
     	
     	Item adicional2 = new Item();
-    	adicional2.setCodProd(2222);
+    	adicional2.setCodProd(2222l);
     	adicional2.setNome("Cheddar");
     	adicionais.add(adicional2);
     	batata1.setAdicionais(adicionais);
 
-    	batata2.setCodProd(13);
+    	batata2.setCodProd(13l);
     	batata2.setNome("Batata Calabresa");
     	batata2.setDescricao("Batata recheada com calabresa");
     	batata2.setPreco(25.00);
@@ -49,7 +49,7 @@ public class ProdutoDAO {
     	batata2.setTamanho(Tamanho.GRANDE);
     	batata2.setObservacao("Sem cebola");
     	
-    	refri.setCodProd(15);
+    	refri.setCodProd(15l);
     	refri.setNome("Coca Cola");
     	refri.setDescricao("Refrigerante Coca Cola");
     	refri.setPreco(5.00);
@@ -63,7 +63,7 @@ public class ProdutoDAO {
     	itens.add(refri);
 	}
 
-	public void excluirBatata(int id) {
+	public void excluirBatata(Long id) {
 		for (Item batata : itens) {
 			if(batata.getCodProd() == id) {
 				itens.remove(batata);
@@ -72,7 +72,7 @@ public class ProdutoDAO {
 				
 		}
 	}
-	public Item buscarProduto(int id) {
+	public Item buscarProduto(Long id) {
 		for (Item item : itens) {
 			if(item.getCodProd() == id) {
 				return item;
@@ -95,7 +95,7 @@ public class ProdutoDAO {
 		return item;
 	}
 
-	public Item atualizarProduto(int id,Item item) {
+	public Item atualizarProduto(Long id,Item item) {
 		for (int contador = 0; contador < itens.size(); contador++) {
 			if (itens.get(contador).getCodProd() == id) {
 				itens.set(contador, item);

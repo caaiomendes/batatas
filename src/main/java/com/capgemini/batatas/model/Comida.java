@@ -1,26 +1,29 @@
 package com.capgemini.batatas.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.DiscriminatorColumn;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Comida extends Item{
 
-	private ArrayList<Item> ingredientes;
-	private ArrayList<Item> adicionais;
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Item> ingredientes;
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Item> adicionais;
 	
-	public ArrayList<Item> getIngredientes() {
+	public List<Item> getIngredientes() {
 		return ingredientes;
 	}
-	public void setIngredientes(ArrayList<Item> ingredientes) {
+	public void setIngredientes(List<Item> ingredientes) {
 		this.ingredientes = ingredientes;
 	}
-	public ArrayList<Item> getAdicionais() {
+	public List<Item> getAdicionais() {
 		return adicionais;
 	}
-	public void setAdicionais(ArrayList<Item> adicionais) {
+	public void setAdicionais(List<Item> adicionais) {
 		this.adicionais = adicionais;
 	}
 	
