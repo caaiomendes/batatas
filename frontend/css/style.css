@@ -1,0 +1,13 @@
+table,th,td{
+    background-color: aqua;
+    color: brown;
+    text-align: center;
+    font-size: large;
+    border: 1px solid black;
+}
+body{
+    background-color: white;
+}
+.lista{
+    display: none;
+}

@@ -23,7 +23,7 @@ import com.capgemini.batatas.repository.StockRepository;
 import com.capgemini.batatas.repository.ItemRepository;
 
 @Controller
-@RequestMapping("/produtos")
+@RequestMapping("/items")
 public class ProdutoController{
 	
 	private static ProdutoDAO dao = new ProdutoDAO();
@@ -57,7 +57,7 @@ public class ProdutoController{
     
     @GetMapping("/{id}")
     @ResponseBody
-    Optional<Item> buscarUmProduto(@PathVariable int id) {
+    Optional<Item> buscarUmitem(@PathVariable int id) {
     	Optional<Item> item = itemRepository.findById((long) id);
 		return item;
     }
@@ -78,16 +78,28 @@ public class ProdutoController{
     
     @RequestMapping(value = "" , method = RequestMethod.POST)
     @ResponseBody
-    Item inserirProduto(@RequestBody Item item) {
+    Item inserirItem(@RequestBody Item item) {
     	return itemRepository.save(item);
     }
     
     @RequestMapping(value = "{id}" , method = RequestMethod.PUT)
     @ResponseBody
-    Item atualizarProduto(@PathVariable Long id,@RequestParam(value="nome") String nome, @RequestBody Item item) {
-    	Tipo teste = itemRepository.
-    	item.setNome(nome);
-    	return itemRepository.save(item);
+    public Item atualizarItem(@PathVariable Long id,@RequestBody Item itemDoFront) {
+    	tratarCampos(id, itemDoFront);
+    	return itemRepository.save(itemDoFront);
     }
+
+	private void tratarCampos(Long id, Item itemDoFront) {
+		Optional<Item> itemDoBack = itemRepository.findById(id);
+    	Item itemDoBackConvertido = itemDoBack.get();
+    	
+    	if(itemDoFront.getNome().isEmpty()) {itemDoBackConvertido.setNome(itemDoFront.getNome());};
+    	if(itemDoFront.getPreco() == 0) {itemDoBackConvertido.setPreco(itemDoFront.getPreco());};
+    	if(itemDoFront.getObservacao().isEmpty()) {itemDoBackConvertido.setObservacao(itemDoFront.getObservacao());};
+    	if(itemDoFront.getTipo() == null) {itemDoBackConvertido.setTipo(itemDoFront.getTipo());};
+    	
+    	//if(itemDoFront.getIngredientes() == null) {itemDoBackConvertido.setIngredientes(itemDoFront.getIngredientes());};
+    	//if(itemDoFront.getAdicionais() == null) {itemDoBackConvertido.setAdicionais(itemDoFront.getAdicionais());};
+	}
     
 }
