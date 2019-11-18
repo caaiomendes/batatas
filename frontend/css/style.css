@@ -1,13 +1,91 @@
-table,th,td{
-    background-color: aqua;
-    color: brown;
-    text-align: center;
-    font-size: large;
-    border: 1px solid black;
+body {
+  background-color: #f1f3f6;
 }
-body{
-    background-color: white;
+body .btnVoltar {
+  margin-left: 87px;
+  margin-bottom: 5px;
 }
-.lista{
-    display: none;
+body .etapas {
+  margin-bottom: 20px;
+}
+body .etapas .row .container {
+  text-align: center;
+}
+body h1,
+body h2 {
+  text-align: center;
+}
+body .lista table {
+  /* background-color: green; */
+}
+body .pedido .batata-wrapper {
+  background-color: white;
+  margin: 0 auto;
+  border: 1px solid #e6e6e6;
+  position: relative;
+  padding: 20px;
+  margin-bottom: 34px;
+  border-radius: 3px;
+}
+body .pedido .batata-wrapper h3 {
+  margin-top: 0px;
+  font-size: 20px;
+}
+body .pedido .batata-wrapper .contador-wrapper {
+  text-align: center;
+}
+body .pedido .batata-wrapper .contador-wrapper .contador {
+  width: 30px;
+}
+body .pedido .batata-wrapper .icone-success {
+  position: absolute;
+  font-size: 40px;
+  color: #30b830;
+  right: -11px;
+  top: -17px;
+}
+body .pedido .batata-wrapper .preco {
+  padding: 6px;
+  font-weight: bold;
+}
+body .pedido .batata-wrapper .ingredientes {
+  list-style: square;
+  padding-left: 0;
+}
+body .pedido .bebida-wrapper {
+  background-color: white;
+  margin: 0 auto;
+  border: 1px solid #e6e6e6;
+  position: relative;
+  padding: 20px;
+  margin-bottom: 34px;
+  border-radius: 3px;
+}
+body .pedido .bebida-wrapper h3 {
+  margin-top: 0px;
+  font-size: 20px;
+}
+body .pedido .bebida-wrapper .contador-wrapper {
+  text-align: center;
+}
+body .pedido .bebida-wrapper .contador-wrapper .contador {
+  width: 30px;
+}
+body .pedido .bebida-wrapper .icone-success {
+  position: absolute;
+  font-size: 40px;
+  color: #30b830;
+  right: -11px;
+  top: -17px;
+}
+body .pedido .bebida-wrapper .preco {
+  padding: 6px;
+  font-weight: bold;
+}
+body .pedido .bebida-wrapper .ingredientes {
+  list-style: square;
+  padding-left: 0;
+}
+body .pedido ul {
+  list-style: none;
 }

@@ -23,7 +23,7 @@ import com.capgemini.batatas.repository.StockRepository;
 import com.capgemini.batatas.repository.ItemRepository;
 
 @Controller
-@RequestMapping("/items")
+@RequestMapping("/produtos")
 public class ProdutoController{
 	
 	private static ProdutoDAO dao = new ProdutoDAO();
@@ -51,6 +51,7 @@ public class ProdutoController{
     @ResponseBody
     public String teste() {
 		itemRepository.save(dao.buscarProduto(12l));
+		itemRepository.save(dao.buscarProduto(13l));
 		itemRepository.save(dao.buscarProduto(15l));
 		return "sucesso!";
 	}

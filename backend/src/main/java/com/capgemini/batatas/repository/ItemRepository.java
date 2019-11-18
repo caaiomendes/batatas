@@ -10,5 +10,4 @@ import com.capgemini.batatas.model.enums.Tipo;
 public interface ItemRepository extends CrudRepository<Item, Long> {
 
 	public List<Item> findByTipo(Tipo tipo);
-	public List<Item> findById(Tipo tipo);
 }
